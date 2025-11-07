@@ -1,0 +1,16 @@
+sudo apt update
+curl -sSL https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb -o msfinstall
+chmod +x msfinstall
+sudo ./msfinstall
+sudo apt install -y postgresql postgresql-contrib    # if postgres missing
+sudo systemctl enable --now postgresql
+sudo msfdb init
+which msfconsole
+msfconsole --version
+
+msfconsole
+
+search vsftpd
+info exploit/unix/ftp/vsftpd_234_backdoor
+show options
+exit
