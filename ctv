@@ -14,3 +14,60 @@ search vsftpd
 info exploit/unix/ftp/vsftpd_234_backdoor
 show options
 exit
+
+----------------------------------------------------------------------------------
+sudo apt update
+sudo apt install ufw
+sudo ufw enable
+sudo ufw status verbose
+sudo ufw default deny/allow incoming/outgoing
+sudo ufw allow https
+sudo ufw status numbered
+---------------------------------
+sudo apt update
+sudo apt install clamav -y
+wget https://secure.eicar.org/eicar.com.txt
+clamscan eicar.com.txt
+----------------------------------
+ip link show
+sudo apt update
+sudo apt install -y suricata
+sudo suricata-update
+sudo suricata -c /etc/suricata/suricata.yaml -i <IP(lo)>
+sudo apt install -y nmap
+sudo nmap -sS -Pn 127.0.0.1
+-------------------------------------------
+sudo apt update
+curl -sSL https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb -o msfinstall
+chmod +x msfinstall
+sudo ./msfinstall
+sudo apt install -y postgresql postgresql-contrib    # if postgres missing
+sudo systemctl enable --now postgresql
+sudo msfdb init
+which msfconsole
+msfconsole --version
+
+msfconsole
+
+search vsftpd
+info exploit/unix/ftp/vsftpd_234_backdoor
+show options
+exit
+----------------------------------------------------------------------
+# prerequisites
+sudo apt update
+sudo apt install git python3 python3-pip -y
+
+# clone and install
+git clone https://github.com/trustedsec/social-engineer-toolkit.git
+cd social-engineer-toolkit
+sudo python3 setup.py install
+# if installation reports missing Python packages:
+sudo pip3 install -r requirements.txt
+sudo setoolkit
+which setoolkit
+cd social-engineer-toolkit
+sudo python3 setoolkit
+
+1-2-3-4
+----------------------------------------------------------------------------
